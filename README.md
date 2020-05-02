@@ -1,12 +1,11 @@
 ## CLIPS Web App
 
 - Provides a web app as a user interface to CLIPS source files
-- Tested on Ubuntu 16.04 LTS
-- Uses Python 2 as Python 3 is not supported by the CLIPS integration library ([PyCLIPS](http://pyclips.sourceforge.net/manual/pyclips-overview.html) which is imported as `clips` and installed through apt-get `python-clips`)
+- Tested on Ubuntu 16.04 and 18.04 LTS
+- Works with both Python 2 and 3 as they are supported by the CLIPS integration library ([clipspy](https://clipspy.readthedocs.io/en/latest/index.html) which is imported as `clips` and installed through pip)
 
 ### To install
 ```
-$ sudo apt-get install python-clips clips build-essential libssl-dev libffi-dev python-dev python-pip
 $ pip install -r requirements.txt
 ```
 
@@ -20,7 +19,7 @@ $ python app.py
 2. Visit the link http://127.0.0.1:5000/<new clips filename without .clp extension>
 
 ### CLIPS source code
-The modified `*.clp` files are incomplete by themselves (unlike the originals). To run in CLIPS, prepend the contents of `header_clips.clp` first. To run in Python like the example Jupyter notebook, write the Python functions first, then `RegisterPythonFunction` with PyCLIPS, then load `header_python.clp` before your CLIPS source.
+The modified `*.clp` files are incomplete by themselves (unlike the originals). To run in CLIPS, prepend the contents of `header_clips.clp` first. To run in Python like the example Jupyter notebook, write the Python functions first, then `define_function` with clipspy, then load your CLIPS source.
 
 ### Credits
 CLIPS example scripts modified from:
